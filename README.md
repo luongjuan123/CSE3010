@@ -10,6 +10,25 @@ Kho lưu trữ bài tập và dự án thực hành môn học **CSE3010**.
 | :--- | :--- |
 | `lecture0-0.cs`, `lecture0-1.cs` | Bài tập khởi động tuần 0 (Cơ bản về C#, nhập xuất, class hình học). |
 | [`poject w5/`](./poject%20w5/) | **Dự án Quản lý Sinh viên - WinForms ADO.NET** theo kiến trúc 3 lớp (3-Tier). |
+| [`poject w6/`](./poject%20w6/) | **Dự án Quản lý Thư viện - Entity Framework Core Code First** (Migration & Database Update). |
+
+---
+
+## Chi tiết Dự án Tuần 6: Quản lý Thư viện (`poject w6`)
+
+Dự án áp dụng phương pháp **Code First** với **Entity Framework Core 8.0** kết nối **SQL Server**.
+
+### Mô hình thực thể và ánh xạ Database
+- **Thực thể (`Entities`)**:
+  - `Author`: Tác giả (`AuthorId`, `Name`, `Email`, `Bio`)
+  - `Category`: Thể loại (`CategoryId`, `Name`, `Description`)
+  - `Book`: Sách (`BookId`, `Title`, `ISBN`, `PublishedYear`, `Price`, `AuthorId`, `CategoryId`)
+- **Ngữ cảnh CSDL (`DbContext`)**:
+  - `LibraryContext`: Thiết lập khóa chính, khóa ngoại 1-N giữa Author-Book và Category-Book, data seeding mẫu.
+- **Migration & Update Database**:
+  - Đã thực thi `dotnet ef migrations add InitialLibraryDB --context LibraryContext`
+  - Đã thực thi `dotnet ef database update --context LibraryContext`
+  - File SQL script tạo bảng: `database.sql`
 
 ---
 
